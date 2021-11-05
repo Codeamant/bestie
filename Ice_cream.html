@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ice cream</title>
+
+    <style media="screen">
+      body {
+          background: #222;
+          margin-top: 30px;
+          font-family: arial;
+          color: white;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .hearts {
+        font-size: 23px;
+        font-weight: bold;
+        position: fixed;
+        top:-1vh;
+        transform: translateY(0%);
+        left: 0;
+        animation: fall 10s ease-in infinite;
+      }
+
+      @keyframes fall {
+        to{
+          transform: translateY(250vh);
+        }
+      }
+
+      .thumbnails img {
+          height: 200px;
+          border: 4px solid #555;
+          padding: 2px;
+          margin: 0 50px 0;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="guide"><div style="color: orange; font-size: 50px; font-family: Brush Script MT;">Gift and A letter for you! 🙂</div></h1>
+      <br><br><br>
+      <div class="thumbnails">
+        <a href="gift.html"><img src="images\giftmain.jpg"></a>
+        <a href="letter.html"><img src="images\lettermain.jpg"></a>
+      </div>
+    </div>
+
+
+
+  </body>
+
+  <script type="text/javascript">
+
+  function hearts () {
+    const container = document.querySelector('.container');
+    const creat = document.createElement ('div');
+    creat.classList.add('hearts');
+    creat.innerHTML = '🧡';
+
+    creat.style.left = Math.random() * 100 + 'vw';
+    creat.style.animationDuration = Math.random()* 3 + 2 + 's';
+
+    container.appendChild(creat)
+    setTimeout(() => {
+          creat.remove();
+      }, 3000);
+
+  }
+
+  setInterval (hearts, 200);
+
+  </script>
+</html>
